@@ -333,8 +333,7 @@ public class GlibcProgramLauncherComponent extends GuestProgramLauncherComponent
         // Execute the command and capture its output
         try {
             Log.d("GlibcProgramLauncherComponent", "Shell command is " + finalCommand);
-            java.lang.Process process = 
-while ((line = reader.readLine()) != null) {(finalCommand, envVars.toStringArray(), workingDir != null ? workingDir : imageFs.getRootDir());
+            java.lang.Process process = Runtime.getRuntime().exec(finalCommand, envVars.toStringArray(), workingDir != null ? workingDir : imageFs.getRootDir());
             BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
             BufferedReader errorReader = new BufferedReader(new InputStreamReader(process.getErrorStream()));
 
